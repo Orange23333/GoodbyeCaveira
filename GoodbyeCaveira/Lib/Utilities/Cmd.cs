@@ -11,34 +11,45 @@ namespace GoodbyeCaveira.Lib.Utilities
 {
 	public class Cmd
 	{
-		public static void TaskKill(string imageName)
+		public static void TaskKill(string[] imageNames)
 		{
-			void Run(string shellPath, string command)
+			if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
 			{
+				void DataReceivedEventHandler(object sender, DataReceivedEventArgs e)
+				{
+					if (e.Data != null)
+					{
+						LogHelper.Write(LogHelper.Type_Debug, $"Console: {e.Data}");
+					}
+				}
+
 				Process process = new Process()
 				{
 					StartInfo = new ProcessStartInfo()
 					{
 						UseShellExecute = false,
 						CreateNoWindow = true,
-						FileName = shellPath,
-						RedirectStandardInput = true
-					}
+						FileName = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.SystemX86), "cmd.exe"),
+						RedirectStandardInput = true,
+						RedirectStandardOutput = true,
+						RedirectStandardError = true,
+					},
 				};
 				process.Start();
-				process.StandardInput.WriteLine(command);
+				process.OutputDataReceived += DataReceivedEventHandler;
+				process.ErrorDataReceived+=DataReceivedEventHandler;
+				process.BeginOutputReadLine();
+				process.BeginErrorReadLine();
+
+				foreach (string imageName in imageNames)
+				{
+					process.StandardInput.WriteLine($"taskkill /F /IM {imageName}");
+					LogHelper.Write(LogHelper.Type_Debug, $"Execute: taskkill /F /IM \"{imageName}\"");
+				}
+
 				process.StandardInput.WriteLine("exit");
 				process.WaitForExit();
 				process.Close();
-			}
-
-			if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-			{
-				Run(
-					System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.SystemX86), "cmd.exe"),
-					$"taskkill /F /IM {imageName}"
-				);
-				LogHelper.Write(LogHelper.Type_Debug, $"Execute: taskkill /F /IM \"{imageName}\"");
 			}
 			else
 			{

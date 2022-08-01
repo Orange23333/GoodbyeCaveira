@@ -12,8 +12,7 @@ namespace GoodbyeCaveira
 {
     public partial class Form1
     {
-		public static readonly string R6_ImageName = "Rainbow Six";
-		public static readonly string BattleEye_ImageName = "BattlEye Launcher";
+		public static readonly string[] TargetImageNames = { "RainbowSix.exe", "RainbowSix_BE.exe", "BEService.exe" };
 
 		private object actionLock = new object();
 		private bool actionWorking = false;
@@ -57,12 +56,19 @@ namespace GoodbyeCaveira
 			//	}
 			//});
 
-			Cmd.TaskKill(R6_ImageName);
-			Cmd.TaskKill(BattleEye_ImageName);
+			Task.Run(() =>
+			{
+				Cmd.TaskKill(TargetImageNames);
 
-			LogHelper.Write(LogHelper.Type_Info, "Goodbye Caveira!");
+				LogHelper.Write(LogHelper.Type_Info, "Goodbye Caveira!");
+				LogHelper.Write(LogHelper.Type_Info, "如果运行不正常，可以试试用管理员权限启动本程序。（注意：本程序开源，并且可信下载来源是Github用户Orange23333，或者https://www.ourorangenet.com）");
+				LogHelper.Write(LogHelper.Type_Info, "If execution didn't achieve expectation, you could try to use administrator privileges to boot this program. (ATTENTION: This program is open source. The only 2 trusted origin are Orange23333 on Github and https://www.ourorangenet.com)");
 
-			actionWorking = false;
+				this.BeginInvoke(() =>
+				{
+					actionWorking = false;
+				});
+			});
 		}
 	}
 }

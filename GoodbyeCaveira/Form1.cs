@@ -20,7 +20,7 @@ namespace GoodbyeCaveira
 			this.logList = new LogList()
 			{
 				Location = new Point(6, 22),
-				Size = new Size(573, 77)
+				Size = new Size(573, 236)
 			};
 			this.groupBox_Log.Controls.Add(logList);
 
@@ -68,6 +68,11 @@ namespace GoodbyeCaveira
 		private void button_ClearLog_Click(object sender, EventArgs e)
 		{
 			logList?.LogList_Clear();
+		}
+
+		private void checkBox_AutoWrap_CheckStateChanged(object sender, EventArgs e)
+		{
+			this.logList.AutoWrap = ((CheckBox)sender).Checked;
 		}
 	}
 }

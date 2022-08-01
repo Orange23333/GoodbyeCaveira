@@ -9,6 +9,8 @@ namespace GoodbyeCaveira.UI
 {
 	public interface ILogList
 	{
+		bool AutoWrap { get; set; }
+
 		Log[] LogList_Logs { get; }
 
 		void LogList_Refresh();

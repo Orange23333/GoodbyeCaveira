@@ -45,6 +45,7 @@
 			this.textBox_AbortHotKey = new System.Windows.Forms.TextBox();
 			this.groupBox_Commands = new System.Windows.Forms.GroupBox();
 			this.groupBox_Log = new System.Windows.Forms.GroupBox();
+			this.checkBox_AutoWrap = new System.Windows.Forms.CheckBox();
 			this.button_ClearLog = new System.Windows.Forms.Button();
 			this.button_About = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_Icon)).BeginInit();
@@ -61,7 +62,7 @@
 			this.pictureBox_Icon.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_Icon.Image")));
 			this.pictureBox_Icon.Location = new System.Drawing.Point(12, 12);
 			this.pictureBox_Icon.Name = "pictureBox_Icon";
-			this.pictureBox_Icon.Size = new System.Drawing.Size(185, 384);
+			this.pictureBox_Icon.Size = new System.Drawing.Size(185, 543);
 			this.pictureBox_Icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pictureBox_Icon.TabIndex = 1;
 			this.pictureBox_Icon.TabStop = false;
@@ -72,7 +73,7 @@
             this.toolStripStatusLabel_Status,
             this.toolStripProgressBar_Status,
             this.toolStripStatusLabel_Version});
-			this.statusStrip.Location = new System.Drawing.Point(0, 428);
+			this.statusStrip.Location = new System.Drawing.Point(0, 587);
 			this.statusStrip.Name = "statusStrip";
 			this.statusStrip.Size = new System.Drawing.Size(800, 22);
 			this.statusStrip.TabIndex = 2;
@@ -199,17 +200,32 @@
 			// 
 			// groupBox_Log
 			// 
+			this.groupBox_Log.Controls.Add(this.checkBox_AutoWrap);
 			this.groupBox_Log.Controls.Add(this.button_ClearLog);
 			this.groupBox_Log.Location = new System.Drawing.Point(203, 291);
 			this.groupBox_Log.Name = "groupBox_Log";
-			this.groupBox_Log.Size = new System.Drawing.Size(585, 134);
+			this.groupBox_Log.Size = new System.Drawing.Size(585, 293);
 			this.groupBox_Log.TabIndex = 10;
 			this.groupBox_Log.TabStop = false;
 			this.groupBox_Log.Text = "Log 日志";
 			// 
+			// checkBox_AutoWrap
+			// 
+			this.checkBox_AutoWrap.AutoSize = true;
+			this.checkBox_AutoWrap.Checked = true;
+			this.checkBox_AutoWrap.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkBox_AutoWrap.Location = new System.Drawing.Point(360, 266);
+			this.checkBox_AutoWrap.Name = "checkBox_AutoWrap";
+			this.checkBox_AutoWrap.Size = new System.Drawing.Size(141, 21);
+			this.checkBox_AutoWrap.TabIndex = 2;
+			this.checkBox_AutoWrap.Text = "Auto Wrap 自动换行";
+			this.checkBox_AutoWrap.UseCompatibleTextRendering = true;
+			this.checkBox_AutoWrap.UseVisualStyleBackColor = true;
+			this.checkBox_AutoWrap.CheckStateChanged += new System.EventHandler(this.checkBox_AutoWrap_CheckStateChanged);
+			// 
 			// button_ClearLog
 			// 
-			this.button_ClearLog.Location = new System.Drawing.Point(504, 105);
+			this.button_ClearLog.Location = new System.Drawing.Point(504, 264);
 			this.button_ClearLog.Name = "button_ClearLog";
 			this.button_ClearLog.Size = new System.Drawing.Size(75, 23);
 			this.button_ClearLog.TabIndex = 1;
@@ -219,7 +235,7 @@
 			// 
 			// button_About
 			// 
-			this.button_About.Location = new System.Drawing.Point(12, 402);
+			this.button_About.Location = new System.Drawing.Point(12, 561);
 			this.button_About.Name = "button_About";
 			this.button_About.Size = new System.Drawing.Size(185, 23);
 			this.button_About.TabIndex = 11;
@@ -231,7 +247,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(800, 609);
 			this.Controls.Add(this.button_About);
 			this.Controls.Add(this.groupBox_Log);
 			this.Controls.Add(this.groupBox_Commands);
@@ -240,7 +256,7 @@
 			this.Controls.Add(this.pictureBox_Icon);
 			this.Controls.Add(this.statusStrip);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.MaximumSize = new System.Drawing.Size(816, 489);
+			this.MaximumSize = new System.Drawing.Size(816, 648);
 			this.MinimumSize = new System.Drawing.Size(816, 489);
 			this.Name = "Form1";
 			this.Text = "Goodbye Caveria!";
@@ -252,6 +268,7 @@
 			this.groupBox_HotKeys.PerformLayout();
 			this.groupBox_Commands.ResumeLayout(false);
 			this.groupBox_Log.ResumeLayout(false);
+			this.groupBox_Log.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -276,5 +293,6 @@
 		private Button button_About;
 		private Button button_ClearLog;
 		private ToolStripProgressBar toolStripProgressBar_Status;
+		private CheckBox checkBox_AutoWrap;
 	}
 }

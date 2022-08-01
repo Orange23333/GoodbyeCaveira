@@ -13,6 +13,8 @@ namespace GoodbyeCaveira.UI.Controls
 {
 	public partial class LogList : UserControl, ILogList
 	{
+		public bool AutoWrap { get { return this.textBox_Logs.WordWrap; } set { this.textBox_Logs.WordWrap = value; } }
+
 		protected object LogListLock = new object();
 
 		protected List<Log> logs = new List<Log>();
@@ -25,7 +27,7 @@ namespace GoodbyeCaveira.UI.Controls
 
 		private void LogList_Load(object sender, EventArgs e)
 		{
-			this.listBox_Logs.Items.Clear();
+			LogList_Clear();
 		}
 
 		protected object LogList_RefreshingLock = new object();
@@ -53,7 +55,7 @@ namespace GoodbyeCaveira.UI.Controls
 			switch (cmd)
 			{
 				case 1:
-					LogList_RefreshImmediately();
+					LogList_RefreshImmediately(true);
 					lock (LogList_RefreshingLock)
 					{
 						LogList_Refreshing = false;
@@ -76,7 +78,7 @@ namespace GoodbyeCaveira.UI.Controls
 
 						this.Invoke(() =>
 						{
-							LogList_RefreshImmediately();
+							LogList_RefreshImmediately(true);
 
 							lock (LogList_RefreshingLock)
 							{
@@ -89,13 +91,28 @@ namespace GoodbyeCaveira.UI.Controls
 					return;
 			}
 		}
-		protected void LogList_RefreshImmediately()
+		protected StringBuilder LogList_ContentStringBuilder = new StringBuilder(short.MaxValue);
+		protected void LogList_RefreshImmediately(bool scrollToTheBottom = true)
 		{
 			lock (LogListLock)
 			{
-#warning 低效刷新
-				this.listBox_Logs.Items.Clear();
-				this.listBox_Logs.Items.AddRange(logs.ToArray());
+				this.textBox_Logs.Text = "";
+
+#warning 最好可以记录Log内容是否改变，原本位置与长度，然后用replace进行更新，未改变部分不更新。
+				LogList_ContentStringBuilder.Clear();
+				foreach(var log in logs)
+				{
+					LogList_ContentStringBuilder.AppendLine(log.ToString());
+				}
+
+				if (LogList_ContentStringBuilder.Length > this.textBox_Logs.MaxLength)
+				{
+					this.textBox_Logs.MaxLength = LogList_ContentStringBuilder.Length;
+				}
+				this.textBox_Logs.Text = LogList_ContentStringBuilder.ToString();
+			}
+			if (scrollToTheBottom)
+			{
 				LogList_ScrollToBottom();
 			}
 		}
@@ -104,7 +121,8 @@ namespace GoodbyeCaveira.UI.Controls
 		{
 			lock (LogListLock)
 			{
-				this.listBox_Logs.TopIndex = this.listBox_Logs.Items.Count - (int)(this.listBox_Logs.Height / this.listBox_Logs.ItemHeight);
+				this.textBox_Logs.Select(this.textBox_Logs.Text.Length, 0);
+				this.textBox_Logs.ScrollToCaret();
 			}
 		}
 		
@@ -112,7 +130,7 @@ namespace GoodbyeCaveira.UI.Controls
 		{
 			lock (LogListLock)
 			{
-				this.listBox_Logs.Items.Clear();
+				this.textBox_Logs.Text = "";
 				logs.Clear();
 			}
 		}
@@ -122,15 +140,16 @@ namespace GoodbyeCaveira.UI.Controls
 			lock (LogListLock)
 			{
 				logs.Add(log);
-				this.listBox_Logs.Items.Add(log);
 			}
-			LogList_ScrollToBottom();
+
+			LogList_RefreshImmediately(true);
+
 			return log;
 		}
 
 		private void LogList_SizeChanged(object sender, EventArgs e)
 		{
-			this.listBox_Logs.Size = this.ClientSize;
+			this.textBox_Logs.Size = this.ClientSize;
 		}
 	}
 }
