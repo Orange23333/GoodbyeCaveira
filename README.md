@@ -18,6 +18,22 @@ When you are about to be interrogated by Caveira, quickly press the `Action Hotk
 
 * 调用`taskkill`命令杀死`彩虹六号`相关进程。 Calling `taskkill` command to kill all of process abouted `Rainbow Six`.
 
+# 废话 Nonsense
+
+*其实你也可以<keyboard>Alt</keyboard>+<keyboard>F4</keyboard>。*
+*In fact, you can use <keyboard>Alt</keyboard>+<keyboard>F4</keyboard> as well.*
+
+*所以……我突然就觉的这不香了。*
+*So...I suddenly feel that it isn't tasty.*
+
+问：为什么不用自动点击。
+答：做倒是可以做，但是我怕它被当做作弊程序。（咕咕咕）
+Q: Why not use simular click.
+A: It't achievable. But I'm afraid of BattleEye will detected the program as an illigal peripheral. (Coo coo coo)
+
+我**可能**会用计算机视觉或者直接计算位置+模拟点击实现一个备选方案。
+**Maybe** I will use Computer Vision or calculate position directly + simular click to make a alternative method.
+
 ---
 
 [Github](https://github.com/Orange23333/GoodbyeCaveira)

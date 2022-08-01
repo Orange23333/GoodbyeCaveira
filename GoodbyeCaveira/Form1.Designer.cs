@@ -48,6 +48,7 @@
 			this.checkBox_AutoWrap = new System.Windows.Forms.CheckBox();
 			this.button_ClearLog = new System.Windows.Forms.Button();
 			this.button_About = new System.Windows.Forms.Button();
+			this.comboBox_ChooseMethod = new System.Windows.Forms.ComboBox();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_Icon)).BeginInit();
 			this.statusStrip.SuspendLayout();
 			this.groupBox_HotKeys.SuspendLayout();
@@ -109,9 +110,9 @@
 			// 
 			// button_Action
 			// 
-			this.button_Action.Location = new System.Drawing.Point(6, 22);
+			this.button_Action.Location = new System.Drawing.Point(320, 22);
 			this.button_Action.Name = "button_Action";
-			this.button_Action.Size = new System.Drawing.Size(573, 23);
+			this.button_Action.Size = new System.Drawing.Size(259, 23);
 			this.button_Action.TabIndex = 4;
 			this.button_Action.Text = "Action! 行动！";
 			this.button_Action.UseVisualStyleBackColor = true;
@@ -190,6 +191,7 @@
 			// 
 			// groupBox_Commands
 			// 
+			this.groupBox_Commands.Controls.Add(this.comboBox_ChooseMethod);
 			this.groupBox_Commands.Controls.Add(this.button_Action);
 			this.groupBox_Commands.Location = new System.Drawing.Point(203, 232);
 			this.groupBox_Commands.Name = "groupBox_Commands";
@@ -243,6 +245,18 @@
 			this.button_About.UseVisualStyleBackColor = true;
 			this.button_About.Click += new System.EventHandler(this.button_About_Click);
 			// 
+			// comboBox_ChooseMethod
+			// 
+			this.comboBox_ChooseMethod.FormattingEnabled = true;
+			this.comboBox_ChooseMethod.Items.AddRange(new object[] {
+            "Task Kill (General)",
+            "Guess&Click (Fast than CV)",
+            "CV&Click (Accurate than Guess)"});
+			this.comboBox_ChooseMethod.Location = new System.Drawing.Point(6, 20);
+			this.comboBox_ChooseMethod.Name = "comboBox_ChooseMethod";
+			this.comboBox_ChooseMethod.Size = new System.Drawing.Size(308, 25);
+			this.comboBox_ChooseMethod.TabIndex = 5;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -294,5 +308,6 @@
 		private Button button_ClearLog;
 		private ToolStripProgressBar toolStripProgressBar_Status;
 		private CheckBox checkBox_AutoWrap;
+		private ComboBox comboBox_ChooseMethod;
 	}
 }
