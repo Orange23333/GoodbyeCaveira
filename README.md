@@ -1,10 +1,12 @@
-# GoodbyeCaveira
+# 再见，女鬼！ Goodbye, Caveira!
 
 一个整蛊Caveira用的工具。
 A spoof tool for Caveira.
 
-需要[.NET 6 运行时](https://dotnet.microsoft.com/zh-cn/download/dotnet/6.0)。
-Requires [.NET 6 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0).
+<!--需要[.NET 6 运行时](https://dotnet.microsoft.com/zh-cn/download/dotnet/6.0)。
+Requires [.NET 6 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0).-->
+需要[.NET Framework 4.6.2 运行时](https://dotnet.microsoft.com/zh-cn/download/dotnet-framework/net462)。
+Requires [.NET Framework 4.6.2 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net462).
 
 # 快速开始 Quick Start
 
@@ -18,7 +20,11 @@ When you are about to be interrogated by Caveira, quickly press the `Action Hotk
 
 * 调用`taskkill`命令杀死`彩虹六号`相关进程。 Calling `taskkill` command to kill all of process abouted `Rainbow Six`.
 
+---
+
 # 废话 Nonsense
+
+## 程序 Program
 
 *其实你也可以<keyboard>Alt</keyboard>+<keyboard>F4</keyboard>。*
 *In fact, you can use <keyboard>Alt</keyboard>+<keyboard>F4</keyboard> as well.*
@@ -33,6 +39,16 @@ A: It't achievable. But I'm afraid of BattleEye will detected the program as an 
 
 我**可能**会用计算机视觉或者直接计算位置+模拟点击实现一个备选方案。
 **Maybe** I will use Computer Vision or calculate position directly + simular click to make a alternative method.
+
+## 运行时 Runtime
+
+问：为什么不使用`Windows 7`自带的`.NET Framework 4.5`或是`.NET Framework 4.5.2`？
+答：因为它现在已经停止支持了（2022年8月2日），`.NET Framework 4.6.2`是目前仍在维护的最低选择。
+Q: Why not use `.NET Framework 4.5` built in `Windows 7` or `.NET Framework 4.5.2`?
+A: Because it has been stopped supporting (Aug 2nd ,2022). `.NET Framework 4.6.2`is the lowest choice among still maintained runtimes.
+
+另外，本项目的代码可以通过`.NET 6.0`编译，如果你想用`.NET 6.0`作为运行时的话。
+By the way, those codes are able to pass `.NET 6.0` compile, if you want to use `.NET 6.0` as runtime.
 
 ---
 
