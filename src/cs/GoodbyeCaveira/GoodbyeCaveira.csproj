@@ -62,7 +62,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="copy /Y nul $(OutDir)RequireRuntime_$(TargetFramework)" />
+    <Exec Command="copy /Y nul &quot;$(OutDir)RequireRuntime_$(TargetFramework)&quot;" />
   </Target>
 
 </Project>

@@ -35,7 +35,7 @@ namespace GoodbyeCaveira
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
 			this.toolStripStatusLabel_Status = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripProgressBar_Status = new System.Windows.Forms.ToolStripProgressBar();
-			this.label2 = new System.Windows.Forms.Label();
+			this.label_Tips = new System.Windows.Forms.Label();
 			this.button_Action = new System.Windows.Forms.Button();
 			this.textBox_ActionHotKey = new System.Windows.Forms.TextBox();
 			this.label_ActionHotKey = new System.Windows.Forms.Label();
@@ -92,16 +92,16 @@ namespace GoodbyeCaveira
 			this.toolStripProgressBar_Status.Name = "toolStripProgressBar_Status";
 			this.toolStripProgressBar_Status.Size = new System.Drawing.Size(100, 16);
 			// 
-			// label2
+			// label_Tips
 			// 
-			this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.label2.ForeColor = System.Drawing.Color.Red;
-			this.label2.Location = new System.Drawing.Point(203, 12);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(585, 93);
-			this.label2.TabIndex = 3;
-			this.label2.Text = resources.GetString("label2.Text");
-			this.label2.UseCompatibleTextRendering = true;
+			this.label_Tips.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.label_Tips.ForeColor = System.Drawing.Color.Red;
+			this.label_Tips.Location = new System.Drawing.Point(203, 12);
+			this.label_Tips.Name = "label_Tips";
+			this.label_Tips.Size = new System.Drawing.Size(585, 93);
+			this.label_Tips.TabIndex = 3;
+			this.label_Tips.Text = resources.GetString("label_Tips.Text");
+			this.label_Tips.UseCompatibleTextRendering = true;
 			// 
 			// button_Action
 			// 
@@ -260,7 +260,7 @@ namespace GoodbyeCaveira
 			this.Controls.Add(this.groupBox_Log);
 			this.Controls.Add(this.groupBox_Commands);
 			this.Controls.Add(this.groupBox_HotKeys);
-			this.Controls.Add(this.label2);
+			this.Controls.Add(this.label_Tips);
 			this.Controls.Add(this.pictureBox_Icon);
 			this.Controls.Add(this.statusStrip);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -285,7 +285,7 @@ namespace GoodbyeCaveira
 		#endregion
 		private PictureBox pictureBox_Icon;
 		private StatusStrip statusStrip;
-		private Label label2;
+		private Label label_Tips;
 		private ToolStripStatusLabel toolStripStatusLabel_Status;
 		private Button button_Action;
 		private TextBox textBox_ActionHotKey;
