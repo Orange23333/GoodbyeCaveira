@@ -9,7 +9,7 @@
     <Company>$(Author)</Company>
     <Product>Goodbye Caveira!</Product>
     <Copyright>copyright (c) Orange233 2022</Copyright>
-    <Version>1.0.2.1</Version>
+    <Version>1.0.2.2</Version>
     <PackageProjectUrl>https://github.com/Orange23333/GoodbyeCaveira</PackageProjectUrl>
   </PropertyGroup>
 
