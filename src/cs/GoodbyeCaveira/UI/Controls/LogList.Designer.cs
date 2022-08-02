@@ -51,8 +51,7 @@ namespace GoodbyeCaveira.UI.Controls
 			// 
 			// LogList
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
 			this.BackColor = System.Drawing.Color.Transparent;
 			this.Controls.Add(this.textBox_Logs);
 			this.Name = "LogList";

@@ -46,11 +46,11 @@ namespace GoodbyeCaveira
 			this.button_BindAbortHotKey = new System.Windows.Forms.Button();
 			this.textBox_AbortHotKey = new System.Windows.Forms.TextBox();
 			this.groupBox_Commands = new System.Windows.Forms.GroupBox();
+			this.comboBox_ChooseMethod = new System.Windows.Forms.ComboBox();
 			this.groupBox_Log = new System.Windows.Forms.GroupBox();
 			this.checkBox_AutoWrap = new System.Windows.Forms.CheckBox();
 			this.button_ClearLog = new System.Windows.Forms.Button();
 			this.button_About = new System.Windows.Forms.Button();
-			this.comboBox_ChooseMethod = new System.Windows.Forms.ComboBox();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox_Icon)).BeginInit();
 			this.statusStrip.SuspendLayout();
 			this.groupBox_HotKeys.SuspendLayout();
@@ -202,6 +202,18 @@ namespace GoodbyeCaveira
 			this.groupBox_Commands.TabStop = false;
 			this.groupBox_Commands.Text = "Commands 命令";
 			// 
+			// comboBox_ChooseMethod
+			// 
+			this.comboBox_ChooseMethod.FormattingEnabled = true;
+			this.comboBox_ChooseMethod.Items.AddRange(new object[] {
+            "Task Kill (General)",
+            "Guess&Click (Fast than CV)",
+            "CV&Click (Accurate than Guess)"});
+			this.comboBox_ChooseMethod.Location = new System.Drawing.Point(6, 20);
+			this.comboBox_ChooseMethod.Name = "comboBox_ChooseMethod";
+			this.comboBox_ChooseMethod.Size = new System.Drawing.Size(308, 25);
+			this.comboBox_ChooseMethod.TabIndex = 5;
+			// 
 			// groupBox_Log
 			// 
 			this.groupBox_Log.Controls.Add(this.checkBox_AutoWrap);
@@ -247,22 +259,9 @@ namespace GoodbyeCaveira
 			this.button_About.UseVisualStyleBackColor = true;
 			this.button_About.Click += new System.EventHandler(this.button_About_Click);
 			// 
-			// comboBox_ChooseMethod
-			// 
-			this.comboBox_ChooseMethod.FormattingEnabled = true;
-			this.comboBox_ChooseMethod.Items.AddRange(new object[] {
-            "Task Kill (General)",
-            "Guess&Click (Fast than CV)",
-            "CV&Click (Accurate than Guess)"});
-			this.comboBox_ChooseMethod.Location = new System.Drawing.Point(6, 20);
-			this.comboBox_ChooseMethod.Name = "comboBox_ChooseMethod";
-			this.comboBox_ChooseMethod.Size = new System.Drawing.Size(308, 25);
-			this.comboBox_ChooseMethod.TabIndex = 5;
-			// 
 			// Form1
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
 			this.ClientSize = new System.Drawing.Size(800, 609);
 			this.Controls.Add(this.button_About);
 			this.Controls.Add(this.groupBox_Log);
