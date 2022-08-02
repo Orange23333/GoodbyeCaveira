@@ -35,7 +35,6 @@ namespace GoodbyeCaveira
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
 			this.toolStripStatusLabel_Status = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolStripProgressBar_Status = new System.Windows.Forms.ToolStripProgressBar();
-			this.toolStripStatusLabel_Version = new System.Windows.Forms.ToolStripStatusLabel();
 			this.label2 = new System.Windows.Forms.Label();
 			this.button_Action = new System.Windows.Forms.Button();
 			this.textBox_ActionHotKey = new System.Windows.Forms.TextBox();
@@ -74,13 +73,13 @@ namespace GoodbyeCaveira
 			// 
 			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel_Status,
-            this.toolStripProgressBar_Status,
-            this.toolStripStatusLabel_Version});
+            this.toolStripProgressBar_Status});
 			this.statusStrip.Location = new System.Drawing.Point(0, 587);
 			this.statusStrip.Name = "statusStrip";
 			this.statusStrip.Size = new System.Drawing.Size(800, 22);
 			this.statusStrip.TabIndex = 2;
 			this.statusStrip.Text = "statusStrip1";
+			this.statusStrip.Visible = false;
 			// 
 			// toolStripStatusLabel_Status
 			// 
@@ -92,12 +91,6 @@ namespace GoodbyeCaveira
 			// 
 			this.toolStripProgressBar_Status.Name = "toolStripProgressBar_Status";
 			this.toolStripProgressBar_Status.Size = new System.Drawing.Size(100, 16);
-			// 
-			// toolStripStatusLabel_Version
-			// 
-			this.toolStripStatusLabel_Version.Name = "toolStripStatusLabel_Version";
-			this.toolStripStatusLabel_Version.Size = new System.Drawing.Size(188, 17);
-			this.toolStripStatusLabel_Version.Text = "version: 1.0.1.0 (2022 July 25th)";
 			// 
 			// label2
 			// 
@@ -292,7 +285,6 @@ namespace GoodbyeCaveira
 		#endregion
 		private PictureBox pictureBox_Icon;
 		private StatusStrip statusStrip;
-		private ToolStripStatusLabel toolStripStatusLabel_Version;
 		private Label label2;
 		private ToolStripStatusLabel toolStripStatusLabel_Status;
 		private Button button_Action;
