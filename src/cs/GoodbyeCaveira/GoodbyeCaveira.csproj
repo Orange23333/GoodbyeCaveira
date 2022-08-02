@@ -2,10 +2,9 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
+    <TargetFrameworks>net6.0-windows;netframework462</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <ImplicitUsings>disable</ImplicitUsings>
     <Authors>Orange233</Authors>
     <Company>$(Author)</Company>
     <Product>Goodbye Caveira!</Product>
@@ -13,6 +12,14 @@
     <Version>1.0.2.1</Version>
     <PackageProjectUrl>https://github.com/Orange23333/GoodbyeCaveira</PackageProjectUrl>
   </PropertyGroup>
+
+	<PropertyGroup Condition=" '$(TargetFramework)' == 'net6.0' ">
+		<Nullable>disable</Nullable>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(TargetFramework)' == 'net462' ">
+		<Nullable>disable</Nullable>
+	</PropertyGroup>
 
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
@@ -28,7 +35,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-
+	
   <ItemGroup>
     <None Update="images\983fd501f3c35b570aac8d18fb8cd996.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

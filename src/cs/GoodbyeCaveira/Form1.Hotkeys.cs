@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 using GoodbyeCaveira.Lib.Utilities;
 
@@ -21,10 +22,10 @@ namespace GoodbyeCaveira
         private static readonly string HotKey_Action_Name = "Action";
         private Message HotKey_Action(Message message)
         {
-            this.BeginInvoke(() =>
+            this.BeginInvoke((Action)(() =>
             {
                 Action();
-            });
+            }));
             return message;
         }
 

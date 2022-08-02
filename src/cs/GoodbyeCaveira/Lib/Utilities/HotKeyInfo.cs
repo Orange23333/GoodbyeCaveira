@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-#nullable disable
+#if NET6_0_OR_GREATER
+	#nullable disable
+#endif
 
 namespace GoodbyeCaveira.Lib.Utilities
 {

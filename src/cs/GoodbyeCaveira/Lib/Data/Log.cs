@@ -4,15 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+#if NET6_0_OR_GREATER
+	#nullable disable
+#endif
+
 namespace GoodbyeCaveira.Lib.Data
 {
 	public class Log
 	{
-		protected DateTime? time;
-		protected string? type;
+		protected Nullable<DateTime> time;
+		public Nullable<DateTime> Time { get { return time; } set { time = value; } }
+		protected string type;
+		public string Type { get { return type; } set { type = value; } }
 
 		protected string text;
-		public string Text { get { return text; } set { text = value; } }
+		public string Text {
+			get { return text; }
+			set
+			{
+				text = value == null ? "" : value;
+			}
+		}
 
 		public override string ToString()
 		{
@@ -35,7 +47,7 @@ namespace GoodbyeCaveira.Lib.Data
 		}
 
 		public Log(string text) : this(null, null, text) {; }
-		public Log(DateTime? time, string? type, string? message)
+		public Log(Nullable<DateTime> time, string type, string message)
 		{
 			this.time = time;
 			this.type = type;

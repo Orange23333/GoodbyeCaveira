@@ -6,7 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-#nullable disable
+#if NET6_0_OR_GREATER
+	#nullable disable
+#endif
 
 namespace GoodbyeCaveira.Lib.Utilities
 {
@@ -42,9 +44,9 @@ namespace GoodbyeCaveira.Lib.Utilities
 						}
 						else
 						{
-							m = sameId.Single().Value.InvokeHandleControl.Invoke(() => {
+							m = (Message)(sameId.Single().Value.InvokeHandleControl.Invoke((Func<Message>)(() => {
 								return sameId.Single().Value.HotKeyHandle(message);
-							});
+							})));
 						}
 						
 						break;
@@ -188,7 +190,11 @@ namespace GoodbyeCaveira.Lib.Utilities
 			}
 			else
 			{
+#if NET6_0_OR_GREATER
 				int lasterror = Marshal.GetLastPInvokeError();
+#else
+				int lasterror = Marshal.GetLastWin32Error();
+#endif
 				LogHelper.Write(LogHelper.Type_Error, $"Register hotkey failed. (Error Code = {lasterror}, Message = \"{Kernel32.FormatMessage(lasterror)}\")");
 				return false;
 			}
@@ -216,7 +222,11 @@ namespace GoodbyeCaveira.Lib.Utilities
 		{
 			if (!User32.UnregisterHotKey(innerWindowHandleBody.Handle, id))
 			{
+#if NET6_0_OR_GREATER
 				int lasterror = Marshal.GetLastPInvokeError();
+#else
+				int lasterror = Marshal.GetLastWin32Error();
+#endif
 
 				if (hotKeys.TryGetValue(id, out var target))
 				{
@@ -237,7 +247,7 @@ namespace GoodbyeCaveira.Lib.Utilities
 			}
 		}
 
-		#region ===IDisposable===
+#region ===IDisposable===
 		// Track whether Dispose has been called.
 		private bool disposed = false;
 
@@ -268,6 +278,6 @@ namespace GoodbyeCaveira.Lib.Utilities
 		{
 			Dispose(disposing: false);
 		}
-		#endregion
+#endregion
 	}
 }

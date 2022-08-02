@@ -1,4 +1,6 @@
-﻿namespace GoodbyeCaveira.UI.Controls
+﻿using System.Windows.Forms;
+
+namespace GoodbyeCaveira.UI.Controls
 {
 	partial class LogList
 	{

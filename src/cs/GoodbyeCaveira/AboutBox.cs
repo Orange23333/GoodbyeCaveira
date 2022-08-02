@@ -13,7 +13,9 @@ using System.Windows.Forms;
 
 using GoodbyeCaveira.Lib.Utilities;
 
+#if NET6_0_OR_GREATER
 #nullable disable
+#endif
 
 namespace GoodbyeCaveira
 {
@@ -161,18 +163,21 @@ namespace GoodbyeCaveira
 				process.Close();
 			}
 
+#if NET6_0_OR_GREATER
 			if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
 			{
+#endif
 				Run(
 					System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.SystemX86), "cmd.exe"),
 					$"start {AuthorUrl}"
 				);
 
 				LogHelper.Write(LogHelper.Type_Debug, $"start {AuthorUrl}");
+#if NET6_0_OR_GREATER
 			}
 			else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
 			{
-#warning 未测试
+	#warning 未测试
 				Run(
 					"/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal",
 					$"open {AuthorUrl}"
@@ -184,6 +189,7 @@ namespace GoodbyeCaveira
 				MessageBox.Show($"Author URL: \"{AuthorUrl}\".", "Author URL", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 				LogHelper.Write(LogHelper.Type_Info, $"Author URL: \"{AuthorUrl}\".");
 			}
+#endif
 		}
 
 		public static readonly string LogType_EasterEgg = "Easter Egg";
@@ -205,19 +211,19 @@ namespace GoodbyeCaveira
 			{
 				void ResetImage()
 				{
-					this.BeginInvoke(() =>
+					this.BeginInvoke((Action)(() =>
 					{
 						if (!logoPictureBox.IsDisposed)
 						{
 							SetImage_Normal();
 						}
 						easterEggTask = null;
-					});
+					}));
 				}
 
 				try
 				{
-					this.Invoke(() =>
+					this.Invoke((Action)(() =>
 					{
 						if (!logoPictureBox.IsDisposed)
 						{
@@ -226,16 +232,16 @@ namespace GoodbyeCaveira
 							LogHelper.Write(LogType_EasterEgg, "SLEDGE: 80! ");
 							LogHelper.Write(LogType_EasterEgg, "CAVEIRA: I'm in danger. ●∀●");
 						}
-					});
+					}));
 					Task.Delay(800).Wait();
 
-					this.Invoke(() =>
+					this.Invoke((Action)(() =>
 					{
 						if (!logoPictureBox.IsDisposed)
 						{
 							logoPictureBox.Image = null;
 						}
-					});
+					}));
 					Task.Delay(10).Wait();
 
 					ResetImage();
@@ -247,10 +253,10 @@ namespace GoodbyeCaveira
 				}
 				catch (Exception ex)
 				{
-					this.Invoke(() =>
+					this.Invoke((Action)(() =>
 					{
 						MessageBox.Show(ex.ToString(), "Because a error, you lost an easter egg.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-					});
+					}));
 					LogHelper.Write(LogType_EasterEgg, "Because a error, you lost an easter egg.");
 					return;
 				}

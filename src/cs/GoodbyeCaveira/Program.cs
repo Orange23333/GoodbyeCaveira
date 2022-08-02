@@ -1,4 +1,9 @@
+using System;
+using System.Windows.Forms;
+
+#if NET6_0_OR_GREATER
 #nullable disable
+#endif
 
 namespace GoodbyeCaveira
 {
@@ -44,9 +49,18 @@ namespace GoodbyeCaveira
         [STAThread]
 		static void Main()
 		{
-			// To customize application configuration such as set high DPI settings or default font,
-			// see https://aka.ms/applicationconfiguration.
-			ApplicationConfiguration.Initialize();
+#if NET6_0_OR_GREATER
+            //// To customize application configuration such as set high DPI settings or default font,
+            //// see https://aka.ms/applicationconfiguration.
+            //ApplicationConfiguration.Initialize();
+#endif
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+#if NETCOREAPP3_0_OR_GREATER
+            Application.SetHighDpiMode(HighDpiMode.DpiUnawareGdiScaled);
+#endif
+
             mainWindow = new Form1();
 			Application.Run(mainWindow);
 		}

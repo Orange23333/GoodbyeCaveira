@@ -1,11 +1,16 @@
+using System;
+using System.Drawing;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 using GoodbyeCaveira.Lib.Utilities;
 using GoodbyeCaveira.UI.Controls;
 
-#nullable disable
+#if NET6_0_OR_GREATER
+	#nullable disable
+#endif
 
 namespace GoodbyeCaveira
 {
@@ -34,10 +39,10 @@ namespace GoodbyeCaveira
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			this.Invoke(() =>
+			this.Invoke((Action)(() =>
 			{
 				InitHotKey();
-			});
+			}));
 
 			LogHelper.Write(LogHelper.Type_Info, "Hello Caveira!");
 		}

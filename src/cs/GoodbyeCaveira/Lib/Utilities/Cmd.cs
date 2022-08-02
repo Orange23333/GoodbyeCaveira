@@ -13,8 +13,10 @@ namespace GoodbyeCaveira.Lib.Utilities
 	{
 		public static void TaskKill(string[] imageNames)
 		{
+#if NETCOREAPP
 			if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
 			{
+#endif
 				void DataReceivedEventHandler(object sender, DataReceivedEventArgs e)
 				{
 					if (e.Data != null)
@@ -50,11 +52,13 @@ namespace GoodbyeCaveira.Lib.Utilities
 				process.StandardInput.WriteLine("exit");
 				process.WaitForExit();
 				process.Close();
+#if NETCOREAPP
 			}
 			else
 			{
 				LogHelper.Write(LogHelper.Type_Error, "Non-supported operation system.");
 			}
+#endif
 		}
 	}
 }

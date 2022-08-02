@@ -64,10 +64,10 @@ namespace GoodbyeCaveira
 				LogHelper.Write(LogHelper.Type_Info, "如果运行不正常，可以试试用管理员权限启动本程序。（注意：本程序开源，并且可信下载来源是Github用户Orange23333，或者https://www.ourorangenet.com）");
 				LogHelper.Write(LogHelper.Type_Info, "If execution didn't achieved expectation, you could try to use administrator privileges to boot this program. (ATTENTION: This program is open source. The only 2 trusted origin are Orange23333 on Github and https://www.ourorangenet.com)");
 
-				this.BeginInvoke(() =>
+				this.BeginInvoke((Action)(() =>
 				{
 					actionWorking = false;
-				});
+				}));
 			});
 		}
 	}

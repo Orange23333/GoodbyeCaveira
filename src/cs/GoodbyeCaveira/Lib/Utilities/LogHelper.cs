@@ -19,24 +19,18 @@ namespace GoodbyeCaveira.Lib.Utilities
 
 		public static Log Write(DateTime time, string type, string text)
 		{
-			return (Log)(Program.Invoke(() =>
-			{
-				return ((ILogList)Program.MainWindow.LogList).LogList_NewLog(time, type, text);
-			}));
+			return Write(new Log(time, type, text));
 		}
 		public static Log Write(string type, string text)
 		{
-			return (Log)(Program.Invoke(() =>
-			{
-				return ((ILogList)Program.MainWindow.LogList).LogList_NewLog(type, text);
-			}));
+			return Write(new Log(null, type, text));
 		}
 		public static Log Write(Log log)
 		{
-			return (Log)(Program.Invoke(() =>
+			return (Log)(Program.Invoke((Func<Log>)(() =>
 			{
 				return ((ILogList)Program.MainWindow.LogList).LogList_NewLog(log);
-			}));
+			})));
 		}
 	}
 }

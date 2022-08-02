@@ -76,7 +76,7 @@ namespace GoodbyeCaveira.UI.Controls
 							Task.Delay(100).Wait();
 						}
 
-						this.Invoke(() =>
+						this.Invoke((Action)(() =>
 						{
 							LogList_RefreshImmediately(true);
 
@@ -84,7 +84,7 @@ namespace GoodbyeCaveira.UI.Controls
 							{
 								LogList_WaitingRefresh = false;
 							}
-						});
+						}));
 					});
 					break;
 				default:

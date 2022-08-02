@@ -18,14 +18,14 @@ namespace GoodbyeCaveira.UI
 
 		void LogList_Clear();
 
-		public virtual Log LogList_NewLog(string type, string text)
-		{
-			return LogList_NewLog(new Log(DateTime.Now, type, text));
-		}
-		public virtual Log LogList_NewLog(DateTime time, string type, string text)
-		{
-			return LogList_NewLog(new Log(time, type, text));
-		}
+		//public virtual Log LogList_NewLog(string type, string text)
+		//{
+		//	return LogList_NewLog(new Log(DateTime.Now, type, text));
+		//}
+		//public virtual Log LogList_NewLog(DateTime time, string type, string text)
+		//{
+		//	return LogList_NewLog(new Log(time, type, text));
+		//}
 		Log LogList_NewLog(Log log);
 	}
 }

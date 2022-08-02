@@ -1,4 +1,6 @@
-﻿namespace GoodbyeCaveira
+﻿using System.Windows.Forms;
+
+namespace GoodbyeCaveira
 {
 	partial class AboutBox
 	{
